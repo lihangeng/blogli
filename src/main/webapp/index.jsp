@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <%@ page contentType="text/html; charset=UTF-8" %>
     <title>Classic - Responsive Bootstrap 4.0 Template</title>
 
     <!-- load stylesheets -->
@@ -25,7 +25,7 @@
         <div class="tm-header">
             <div class="container-fluid">
                 <div class="tm-header-inner">
-                    <a href="#" class="navbar-brand tm-site-name">ON THE WAY</a>
+                    <a href="#" class="navbar-brand tm-site-name">行走</a>
                     
                     <!-- navbar -->
                     <nav class="navbar tm-main-nav">
@@ -37,16 +37,16 @@
                         <div class="collapse navbar-toggleable-sm" id="tmNavbar">
                             <ul class="nav navbar-nav">
                                 <li class="nav-item active">
-                                    <a href="index.html" class="nav-link">Home</a>
+                                    <a href="index.jsp" class="nav-link">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="about.html" class="nav-link">About</a>
+                                    <a href="about.jsp" class="nav-link">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="blog.html" class="nav-link">Blog</a>
+                                    <a href="blog.jsp" class="nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">Contact</a>
+                                    <a href="contact.jsp" class="nav-link">Contact</a>
                                 </li>
                             </ul>                        
                         </div>
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     
-                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="ç½ç«æ¨¡æ¿">ç½ç«æ¨¡æ¿</a></div>
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
@@ -308,7 +308,7 @@
 
                 <div class="row">
                     <div class="col-xs-12 tm-copyright-col">
-                        <p class="tm-copyright-text">Copyright 2016 Your Company Name. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                        <p class="tm-copyright-text">Copyright 2016 Your Company Name. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹å®¶">æ¨¡æ¿ä¹å®¶</a> - Collect from <a href="http://www.cssmoban.com/" title="ç½é¡µæ¨¡æ¿" target="_blank">ç½é¡µæ¨¡æ¿</a></p>
                     </div>
                 </div>
             </div>
