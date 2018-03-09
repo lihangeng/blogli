@@ -1,4 +1,4 @@
-create table ON_ROAD_USER 
+create table USER 
 (
    ID                   bigint                         not null,
    USER_ID              varchar(16)                    null,
@@ -14,7 +14,7 @@ create table ON_ROAD_USER
    constraint PK_ON_ROAD_USER primary key clustered (ID)
 );
 
-create table ON_ROAD_PERSON 
+create table PERSON 
 (
    ID                   bigint                         null,
    SEX                  varchar(4)                     null,
@@ -60,7 +60,7 @@ create table ARTICLE
    ARTICLE_CLICK        int                            null,
    SORT_ARTICLE_ID      int                            null,
    USER_ID              bigint                         null,
-   ARTICLE_CONTEXT      archar(1024)                   null,
+   ARTICLE_CONTEXT      varchar(1024)                   null,
    ARTICLE_UP           varchar(4)                     null,
    ARTICLE_SUPPORT      varchar(4)                     null
 );
