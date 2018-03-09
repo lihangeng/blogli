@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.suning.epp.sws.dmo.UserRankMapper" >
-  <resultMap id="BaseResultMap" type="com.suning.epp.sws.dmo.UserRank" >
+<mapper namespace="com.blog.dao.IUserRankDao" >
+  <resultMap id="BaseResultMap" type="com.blog.domain.UserRank" >
     <id column="ID" property="id" jdbcType="BIGINT" />
     <result column="RANK_ID" property="rankId" jdbcType="BIGINT" />
     <result column="RANK_MARK" property="rankMark" jdbcType="BIGINT" />
@@ -20,13 +20,13 @@
     delete from user_rank
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.suning.epp.sws.dmo.UserRank" >
+  <insert id="insert" parameterType="com.blog.domain.UserRank" >
     insert into user_rank (ID, RANK_ID, RANK_MARK, 
       RANK_NAME)
     values (#{id,jdbcType=BIGINT}, #{rankId,jdbcType=BIGINT}, #{rankMark,jdbcType=BIGINT}, 
       #{rankName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.suning.epp.sws.dmo.UserRank" >
+  <insert id="insertSelective" parameterType="com.blog.domain.UserRank" >
     insert into user_rank
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.suning.epp.sws.dmo.UserRank" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.UserRank" >
     update user_rank
     <set >
       <if test="rankId != null" >
@@ -72,7 +72,7 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.suning.epp.sws.dmo.UserRank" >
+  <update id="updateByPrimaryKey" parameterType="com.blog.domain.UserRank" >
     update user_rank
     set RANK_ID = #{rankId,jdbcType=BIGINT},
       RANK_MARK = #{rankMark,jdbcType=BIGINT},

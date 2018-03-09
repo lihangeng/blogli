@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.suning.epp.sws.dmo.FriendMapper" >
-  <resultMap id="BaseResultMap" type="com.suning.epp.sws.dmo.Friend" >
+<mapper namespace="com.blog.dao.IFriendDao" >
+  <resultMap id="BaseResultMap" type="com.blog.domain.Friend" >
     <id column="F_ID" property="fId" jdbcType="CHAR" />
     <result column="USER_ID" property="userId" jdbcType="CHAR" />
     <result column="FRIEND_ID" property="friendId" jdbcType="CHAR" />
@@ -19,11 +19,11 @@
     delete from friend
     where F_ID = #{fId,jdbcType=CHAR}
   </delete>
-  <insert id="insert" parameterType="com.suning.epp.sws.dmo.Friend" >
+  <insert id="insert" parameterType="com.blog.domain.Friend" >
     insert into friend (F_ID, USER_ID, FRIEND_ID)
     values (#{fId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{friendId,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.suning.epp.sws.dmo.Friend" >
+  <insert id="insertSelective" parameterType="com.blog.domain.Friend" >
     insert into friend
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="fId != null" >
@@ -48,7 +48,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.suning.epp.sws.dmo.Friend" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.Friend" >
     update friend
     <set >
       <if test="userId != null" >
@@ -60,7 +60,7 @@
     </set>
     where F_ID = #{fId,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.suning.epp.sws.dmo.Friend" >
+  <update id="updateByPrimaryKey" parameterType="com.blog.domain.Friend" >
     update friend
     set USER_ID = #{userId,jdbcType=CHAR},
       FRIEND_ID = #{friendId,jdbcType=CHAR}

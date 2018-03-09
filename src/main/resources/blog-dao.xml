@@ -12,8 +12,8 @@
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<!-- 扫描bbs.dao目录下所有标注@Repository的DAO文件 -->
-	<context:component-scan base-package="com..dao" />
+	<!-- 扫描com.blog目录下所有标注@Repository的DAO文件 -->
+	<context:component-scan base-package="com.blog" />
 	<!-- 引入定义JDBC连接的属性文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
 
