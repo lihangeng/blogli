@@ -10,13 +10,23 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<!-- 批量定义别名 ，指定包名，自动扫描包中的类，别名即为类名，首字母大小写无所谓 -->
 		<!-- <package name="com.wxisme.ssm.po"/> -->
-		<typeAlias alias="User" type="" />
+		<typeAlias alias="User" type="com.blog.domain.User" />
+		<typeAlias alias="Blog" type="com.blog.domain.Blog" />
+		<typeAlias alias="Fried" type="com.blog.domain.Fried" />
+		<typeAlias alias="Person" type="com.blog.domain.Person" />
+		<typeAlias alias="Article" type="com.blog.domain.Article" />
+		<typeAlias alias="UserRank" type="com.blog.domain.UserRank" />
 	</typeAliases>
 
 	<!-- 数据库连接用数据库连接池 -->
 
 	<mappers>
-		<!-- 通过扫描包的方式来进行批量加载映射文件 -->
-		<package name="com.wxisme.ssm.mapper" />
+		<!-- 通过扫描包的方式来进行批量加载映射文件 <package name="com.wxisme.ssm.mapper" /> -->
+		<mapper resource="com/blog/mybatis/UserMapper.xml" />
+		<mapper resource="com/blog/mybatis/BlogMapper.xml" />
+		<mapper resource="com/blog/mybatis/FriedMapper.xml" />
+		<mapper resource="com/blog/mybatis/PersonMapper.xml" />
+		<mapper resource="com/blog/mybatis/ArticleMapper.xml" />
+		<mapper resource="com/blog/mybatis/UserRankMapper.xml" />
 	</mappers>
 </configuration>
