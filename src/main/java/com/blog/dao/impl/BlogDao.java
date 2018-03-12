@@ -12,17 +12,17 @@ public class BlogDao extends BaseDao implements IBlogDao {
 
 	@Override
 	public int insert(Blog record) {
-		return 0;
+		return sessionTemplate.insert("com.blog.Mapper.BlogMapper.insert", record);
 	}
 
 	@Override
 	public Blog selectByPrimaryKey(Long id) {
-		return null;
+		return sessionTemplate.selectOne("com.blog.Mapper.BlogMapper.insert", id);
 	}
 
 	@Override
 	public int updateByPrimaryKey(Blog record) {
-		return 0;
+		return sessionTemplate.update("com.blog.Mapper.BlogMapper.insert", record);
 	}
 
 }
