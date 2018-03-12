@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.Article;
 
-public interface IArticleDao {
+public interface ArticleMapper {
     int insert(Article record);
 
     int insertSelective(Article record);

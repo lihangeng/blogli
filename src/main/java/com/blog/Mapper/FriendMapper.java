@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.Friend;
 
-public interface IFriendDao {
+public interface FriendMapper {
     int deleteByPrimaryKey(String fId);
 
     int insert(Friend record);

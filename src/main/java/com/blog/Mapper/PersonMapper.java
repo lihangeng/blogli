@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.Person;
 
-public interface IPersonDao {
+public interface PersonMapper {
     int insert(Person record);
 
     int insertSelective(Person record);

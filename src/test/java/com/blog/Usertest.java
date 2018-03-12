@@ -19,6 +19,8 @@ public class Usertest {
 	@Test
 	public void testQueryUserById() {
 		User user = userService.selectByPrimaryKey(1L);
+		userService.deleteByPrimaryKey(1L);
 		System.out.println(user.getUserId());
+		System.out.println(user.getUserName());
 	}
 }

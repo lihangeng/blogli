@@ -3,7 +3,7 @@ package com.blog.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.blog.dao.IUserDao;
+import com.blog.dao.intf.IUserDao;
 import com.blog.domain.User;
 
 @Service
@@ -14,19 +14,16 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public int deleteByPrimaryKey(Long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public int insert(User record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.insert(record);
 	}
 
 	@Override
 	public int insertSelective(User record) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -38,20 +35,17 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public int updateByPrimaryKeySelective(User record) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateByPrimaryKeyWithBLOBs(User record) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateByPrimaryKey(User record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.updateByPrimaryKey(record);
 	}
 
 }

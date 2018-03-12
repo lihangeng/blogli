@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.Blog;
 
-public interface IBlogDao {
+public interface BlogMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(Blog record);

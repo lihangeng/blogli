@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.UserRank;
 
-public interface IUserRankDao {
+public interface UserRankMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(UserRank record);

@@ -1,8 +1,8 @@
-package com.blog.dao;
+package com.blog.Mapper;
 
 import com.blog.domain.User;
 
-public interface IUserDao {
+public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(User record);

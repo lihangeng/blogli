@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.dao.IBlogDao" >
+<mapper namespace="com.blog.Mapper.BlogMapper" >
   <resultMap id="BaseResultMap" type="com.blog.domain.Blog" >
     <id column="ID" property="id" jdbcType="BIGINT" />
     <result column="KEYWORD" property="keyword" jdbcType="VARCHAR" />
