@@ -1,17 +1,12 @@
 package com.blog.dao.impl;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.blog.dao.intf.IUserDao;
 import com.blog.domain.User;
 
 @Repository
-public class UserDao implements IUserDao{
-
-	@Autowired
-	private SqlSessionTemplate sessionTemplate;
+public class UserDao extends BaseDao implements IUserDao {
 
 	public User selectByPrimaryKey(Long id) {
 		return (User) sessionTemplate.selectOne("com.blog.Mapper.UserMapper.selectByPrimaryKey", id);

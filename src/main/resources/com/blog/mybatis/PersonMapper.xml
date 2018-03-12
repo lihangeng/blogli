@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.Mapper.PersonMapper" >
+<mapper namespace="com.blog.mapper.PersonMapper" >
   <resultMap id="BaseResultMap" type="com.blog.domain.Person" >
     <result column="ID" property="id" jdbcType="BIGINT" />
     <result column="SEX" property="sex" jdbcType="VARCHAR" />

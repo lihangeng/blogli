@@ -1,4 +1,4 @@
-package com.blog.Mapper;
+package com.blog.mapper;
 
 import com.blog.domain.Blog;
 

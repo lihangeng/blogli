@@ -1,10 +1,11 @@
-package com.blog.service;
+package com.blog.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.blog.dao.intf.IUserDao;
 import com.blog.domain.User;
+import com.blog.service.intf.IUserService;
 
 @Service
 public class UserServiceImpl implements IUserService {
