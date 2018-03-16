@@ -1,6 +1,9 @@
 package com.blog.dao.intf;
 
+import java.util.List;
+
 import com.blog.domain.Blog;
+
 
 public interface IBlogDao {
 
@@ -11,4 +14,6 @@ public interface IBlogDao {
 	Blog selectByPrimaryKey(Long id);
 
 	int updateByPrimaryKey(Blog record);
+	
+	List<Blog> selectAll();
 }

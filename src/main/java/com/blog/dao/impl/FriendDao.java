@@ -1,8 +1,11 @@
 package com.blog.dao.impl;
 
+import org.springframework.stereotype.Repository;
+
 import com.blog.dao.intf.IFriendDao;
 import com.blog.domain.Friend;
 
+@Repository
 public class FriendDao extends BaseDao implements IFriendDao {
 
 	@Override

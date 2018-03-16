@@ -1,69 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.mapper.FriendMapper" >
-  <resultMap id="BaseResultMap" type="com.blog.domain.Friend" >
-    <id column="F_ID" property="fId" jdbcType="CHAR" />
-    <result column="USER_ID" property="userId" jdbcType="CHAR" />
-    <result column="FRIEND_ID" property="friendId" jdbcType="CHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    F_ID, USER_ID, FRIEND_ID
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from friend
-    where F_ID = #{fId,jdbcType=CHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from friend
-    where F_ID = #{fId,jdbcType=CHAR}
-  </delete>
-  <insert id="insert" parameterType="com.blog.domain.Friend" >
-    insert into friend (F_ID, USER_ID, FRIEND_ID)
-    values (#{fId,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{friendId,jdbcType=CHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.blog.domain.Friend" >
-    insert into friend
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="fId != null" >
-        F_ID,
-      </if>
-      <if test="userId != null" >
-        USER_ID,
-      </if>
-      <if test="friendId != null" >
-        FRIEND_ID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="fId != null" >
-        #{fId,jdbcType=CHAR},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=CHAR},
-      </if>
-      <if test="friendId != null" >
-        #{friendId,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.Friend" >
-    update friend
-    <set >
-      <if test="userId != null" >
-        USER_ID = #{userId,jdbcType=CHAR},
-      </if>
-      <if test="friendId != null" >
-        FRIEND_ID = #{friendId,jdbcType=CHAR},
-      </if>
-    </set>
-    where F_ID = #{fId,jdbcType=CHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.blog.domain.Friend" >
-    update friend
-    set USER_ID = #{userId,jdbcType=CHAR},
-      FRIEND_ID = #{friendId,jdbcType=CHAR}
-    where F_ID = #{fId,jdbcType=CHAR}
-  </update>
+<mapper namespace="com.blog.mapper.FriendMapper">
+	<resultMap id="BaseResultMap" type="com.blog.domain.Friend">
+		<id column="F_ID" property="fId" jdbcType="CHAR" />
+		<result column="USER_ID" property="userId" jdbcType="CHAR" />
+		<result column="FRIEND_ID" property="friendId" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		F_ID, USER_ID, FRIEND_ID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from friend
+		where F_ID = #{fId,jdbcType=CHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from friend
+		where F_ID = #{fId,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="com.blog.domain.Friend">
+		insert into friend (F_ID, USER_ID, FRIEND_ID)
+		values (#{fId,jdbcType=CHAR}, #{userId,jdbcType=CHAR},
+		#{friendId,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.blog.domain.Friend">
+		insert into friend
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="fId != null">
+				F_ID,
+			</if>
+			<if test="userId != null">
+				USER_ID,
+			</if>
+			<if test="friendId != null">
+				FRIEND_ID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="fId != null">
+				#{fId,jdbcType=CHAR},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=CHAR},
+			</if>
+			<if test="friendId != null">
+				#{friendId,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.Friend">
+		update friend
+		<set>
+			<if test="userId != null">
+				USER_ID = #{userId,jdbcType=CHAR},
+			</if>
+			<if test="friendId != null">
+				FRIEND_ID = #{friendId,jdbcType=CHAR},
+			</if>
+		</set>
+		where F_ID = #{fId,jdbcType=CHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.blog.domain.Friend">
+		update friend
+		set USER_ID = #{userId,jdbcType=CHAR},
+		FRIEND_ID = #{friendId,jdbcType=CHAR}
+		where F_ID = #{fId,jdbcType=CHAR}
+	</update>
 </mapper>

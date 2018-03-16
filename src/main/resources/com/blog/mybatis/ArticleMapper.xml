@@ -1,93 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.mapper.ArticleMapper" >
-  <resultMap id="BaseResultMap" type="com.blog.domain.Article" >
-    <result column="ID" property="id" jdbcType="BIGINT" />
-    <result column="ARTICLE_NAME" property="articleName" jdbcType="VARCHAR" />
-    <result column="ARTICLE_TIME" property="articleTime" jdbcType="TIMESTAMP" />
-    <result column="ARTICLE_IP" property="articleIp" jdbcType="VARCHAR" />
-    <result column="ARTICLE_CLICK" property="articleClick" jdbcType="INTEGER" />
-    <result column="SORT_ARTICLE_ID" property="sortArticleId" jdbcType="INTEGER" />
-    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
-    <result column="ARTICLE_CONTEXT" property="articleContext" jdbcType="VARCHAR" />
-    <result column="ARTICLE_UP" property="articleUp" jdbcType="VARCHAR" />
-    <result column="ARTICLE_SUPPORT" property="articleSupport" jdbcType="VARCHAR" />
-  </resultMap>
-  <insert id="insert" parameterType="com.blog.domain.Article" >
-    insert into article (ID, ARTICLE_NAME, ARTICLE_TIME, 
-      ARTICLE_IP, ARTICLE_CLICK, SORT_ARTICLE_ID, 
-      USER_ID, ARTICLE_CONTEXT, ARTICLE_UP, 
-      ARTICLE_SUPPORT)
-    values (#{id,jdbcType=BIGINT}, #{articleName,jdbcType=VARCHAR}, #{articleTime,jdbcType=TIMESTAMP}, 
-      #{articleIp,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{sortArticleId,jdbcType=INTEGER}, 
-      #{userId,jdbcType=BIGINT}, #{articleContext,jdbcType=VARCHAR}, #{articleUp,jdbcType=VARCHAR}, 
-      #{articleSupport,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.blog.domain.Article" >
-    insert into article
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="articleName != null" >
-        ARTICLE_NAME,
-      </if>
-      <if test="articleTime != null" >
-        ARTICLE_TIME,
-      </if>
-      <if test="articleIp != null" >
-        ARTICLE_IP,
-      </if>
-      <if test="articleClick != null" >
-        ARTICLE_CLICK,
-      </if>
-      <if test="sortArticleId != null" >
-        SORT_ARTICLE_ID,
-      </if>
-      <if test="userId != null" >
-        USER_ID,
-      </if>
-      <if test="articleContext != null" >
-        ARTICLE_CONTEXT,
-      </if>
-      <if test="articleUp != null" >
-        ARTICLE_UP,
-      </if>
-      <if test="articleSupport != null" >
-        ARTICLE_SUPPORT,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="articleName != null" >
-        #{articleName,jdbcType=VARCHAR},
-      </if>
-      <if test="articleTime != null" >
-        #{articleTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="articleIp != null" >
-        #{articleIp,jdbcType=VARCHAR},
-      </if>
-      <if test="articleClick != null" >
-        #{articleClick,jdbcType=INTEGER},
-      </if>
-      <if test="sortArticleId != null" >
-        #{sortArticleId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=BIGINT},
-      </if>
-      <if test="articleContext != null" >
-        #{articleContext,jdbcType=VARCHAR},
-      </if>
-      <if test="articleUp != null" >
-        #{articleUp,jdbcType=VARCHAR},
-      </if>
-      <if test="articleSupport != null" >
-        #{articleSupport,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+<mapper namespace="com.blog.mapper.ArticleMapper">
+	<resultMap id="BaseResultMap" type="com.blog.domain.Article">
+		<result column="ID" property="id" jdbcType="BIGINT" />
+		<result column="ARTICLE_NAME" property="articleName" jdbcType="VARCHAR" />
+		<result column="ARTICLE_TIME" property="articleTime" jdbcType="TIMESTAMP" />
+		<result column="ARTICLE_IP" property="articleIp" jdbcType="VARCHAR" />
+		<result column="ARTICLE_CLICK" property="articleClick"
+			jdbcType="INTEGER" />
+		<result column="SORT_ARTICLE_ID" property="sortArticleId"
+			jdbcType="INTEGER" />
+		<result column="USER_ID" property="userId" jdbcType="BIGINT" />
+		<result column="ARTICLE_CONTEXT" property="articleContext"
+			jdbcType="VARCHAR" />
+		<result column="ARTICLE_UP" property="articleUp" jdbcType="VARCHAR" />
+		<result column="ARTICLE_SUPPORT" property="articleSupport"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<insert id="insert" parameterType="com.blog.domain.Article">
+		insert into article (ID, ARTICLE_NAME, ARTICLE_TIME,
+		ARTICLE_IP, ARTICLE_CLICK, SORT_ARTICLE_ID,
+		USER_ID, ARTICLE_CONTEXT, ARTICLE_UP,
+		ARTICLE_SUPPORT)
+		values (#{id,jdbcType=BIGINT}, #{articleName,jdbcType=VARCHAR},
+		#{articleTime,jdbcType=TIMESTAMP},
+		#{articleIp,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{sortArticleId,jdbcType=INTEGER},
+		#{userId,jdbcType=BIGINT}, #{articleContext,jdbcType=VARCHAR},
+		#{articleUp,jdbcType=VARCHAR},
+		#{articleSupport,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.blog.domain.Article">
+		insert into article
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="articleName != null">
+				ARTICLE_NAME,
+			</if>
+			<if test="articleTime != null">
+				ARTICLE_TIME,
+			</if>
+			<if test="articleIp != null">
+				ARTICLE_IP,
+			</if>
+			<if test="articleClick != null">
+				ARTICLE_CLICK,
+			</if>
+			<if test="sortArticleId != null">
+				SORT_ARTICLE_ID,
+			</if>
+			<if test="userId != null">
+				USER_ID,
+			</if>
+			<if test="articleContext != null">
+				ARTICLE_CONTEXT,
+			</if>
+			<if test="articleUp != null">
+				ARTICLE_UP,
+			</if>
+			<if test="articleSupport != null">
+				ARTICLE_SUPPORT,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="articleName != null">
+				#{articleName,jdbcType=VARCHAR},
+			</if>
+			<if test="articleTime != null">
+				#{articleTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="articleIp != null">
+				#{articleIp,jdbcType=VARCHAR},
+			</if>
+			<if test="articleClick != null">
+				#{articleClick,jdbcType=INTEGER},
+			</if>
+			<if test="sortArticleId != null">
+				#{sortArticleId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=BIGINT},
+			</if>
+			<if test="articleContext != null">
+				#{articleContext,jdbcType=VARCHAR},
+			</if>
+			<if test="articleUp != null">
+				#{articleUp,jdbcType=VARCHAR},
+			</if>
+			<if test="articleSupport != null">
+				#{articleSupport,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
 </mapper>

@@ -1,9 +1,12 @@
 package com.blog.dao.impl;
 
+import org.springframework.stereotype.Repository;
+
 import com.blog.dao.intf.IUserRankDao;
 import com.blog.domain.UserRank;
 
-public class UserRankDao extends BaseDao implements IUserRankDao{
+@Repository
+public class UserRankDao extends BaseDao implements IUserRankDao {
 
 	@Override
 	public int insert(UserRank record) {
@@ -22,7 +25,7 @@ public class UserRankDao extends BaseDao implements IUserRankDao{
 
 	@Override
 	public int deleteByPrimaryKey(Long id) {
-		return sessionTemplate.delete("com.blog.Mapper.UserRankMapper.deleteByPrimaryKey",id);
+		return sessionTemplate.delete("com.blog.Mapper.UserRankMapper.deleteByPrimaryKey", id);
 	}
-	
+
 }

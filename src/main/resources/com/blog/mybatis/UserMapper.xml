@@ -1,184 +1,189 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.blog.domain.User" >
-    <id column="ID" property="id" jdbcType="BIGINT" />
-    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
-    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
-    <result column="PWD" property="pwd" jdbcType="VARCHAR" />
-    <result column="AUTHORITY" property="authority" jdbcType="VARCHAR" />
-    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="FROZEN" property="frozen" jdbcType="VARCHAR" />
-    <result column="PERSON_ID" property="personId" jdbcType="VARCHAR" />
-    <result column="RANK_ID" property="rankId" jdbcType="VARCHAR" />
-    <result column="MARK" property="mark" jdbcType="BIGINT" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.blog.domain.User" extends="BaseResultMap" >
-    <result column="REMARK" property="remark" jdbcType="VARBINARY" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, USER_ID, USER_NAME, PWD, AUTHORITY, CREATE_TIME, FROZEN, PERSON_ID, RANK_ID, 
-    MARK
-  </sql>
-  <sql id="Blob_Column_List" >
-    REMARK
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from user
-    where ID = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from user
-    where ID = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.blog.domain.User" >
-    insert into user (ID, USER_ID, USER_NAME, 
-      PWD, AUTHORITY, CREATE_TIME, 
-      FROZEN, PERSON_ID, RANK_ID, 
-      MARK, REMARK)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{pwd,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{frozen,jdbcType=VARCHAR}, #{personId,jdbcType=VARCHAR}, #{rankId,jdbcType=VARCHAR}, 
-      #{mark,jdbcType=BIGINT}, #{remark,jdbcType=VARBINARY})
-  </insert>
-  <insert id="insertSelective" parameterType="com.blog.domain.User" >
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="userId != null" >
-        USER_ID,
-      </if>
-      <if test="userName != null" >
-        USER_NAME,
-      </if>
-      <if test="pwd != null" >
-        PWD,
-      </if>
-      <if test="authority != null" >
-        AUTHORITY,
-      </if>
-      <if test="createTime != null" >
-        CREATE_TIME,
-      </if>
-      <if test="frozen != null" >
-        FROZEN,
-      </if>
-      <if test="personId != null" >
-        PERSON_ID,
-      </if>
-      <if test="rankId != null" >
-        RANK_ID,
-      </if>
-      <if test="mark != null" >
-        MARK,
-      </if>
-      <if test="remark != null" >
-        REMARK,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="userName != null" >
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null" >
-        #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="authority != null" >
-        #{authority,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="frozen != null" >
-        #{frozen,jdbcType=VARCHAR},
-      </if>
-      <if test="personId != null" >
-        #{personId,jdbcType=VARCHAR},
-      </if>
-      <if test="rankId != null" >
-        #{rankId,jdbcType=VARCHAR},
-      </if>
-      <if test="mark != null" >
-        #{mark,jdbcType=BIGINT},
-      </if>
-      <if test="remark != null" >
-        #{remark,jdbcType=VARBINARY},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.User" >
-    update user
-    <set >
-      <if test="userId != null" >
-        USER_ID = #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="userName != null" >
-        USER_NAME = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null" >
-        PWD = #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="authority != null" >
-        AUTHORITY = #{authority,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="frozen != null" >
-        FROZEN = #{frozen,jdbcType=VARCHAR},
-      </if>
-      <if test="personId != null" >
-        PERSON_ID = #{personId,jdbcType=VARCHAR},
-      </if>
-      <if test="rankId != null" >
-        RANK_ID = #{rankId,jdbcType=VARCHAR},
-      </if>
-      <if test="mark != null" >
-        MARK = #{mark,jdbcType=BIGINT},
-      </if>
-      <if test="remark != null" >
-        REMARK = #{remark,jdbcType=VARBINARY},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.blog.domain.User" >
-    update user
-    set USER_ID = #{userId,jdbcType=VARCHAR},
-      USER_NAME = #{userName,jdbcType=VARCHAR},
-      PWD = #{pwd,jdbcType=VARCHAR},
-      AUTHORITY = #{authority,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      FROZEN = #{frozen,jdbcType=VARCHAR},
-      PERSON_ID = #{personId,jdbcType=VARCHAR},
-      RANK_ID = #{rankId,jdbcType=VARCHAR},
-      MARK = #{mark,jdbcType=BIGINT},
-      REMARK = #{remark,jdbcType=VARBINARY}
-    where ID = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.blog.domain.User" >
-    update user
-    set USER_ID = #{userId,jdbcType=VARCHAR},
-      USER_NAME = #{userName,jdbcType=VARCHAR},
-      PWD = #{pwd,jdbcType=VARCHAR},
-      AUTHORITY = #{authority,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      FROZEN = #{frozen,jdbcType=VARCHAR},
-      PERSON_ID = #{personId,jdbcType=VARCHAR},
-      RANK_ID = #{rankId,jdbcType=VARCHAR},
-      MARK = #{mark,jdbcType=BIGINT}
-    where ID = #{id,jdbcType=BIGINT}
-  </update>
+<mapper namespace="com.blog.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.blog.domain.User">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="PWD" property="pwd" jdbcType="VARCHAR" />
+		<result column="AUTHORITY" property="authority" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="FROZEN" property="frozen" jdbcType="VARCHAR" />
+		<result column="PERSON_ID" property="personId" jdbcType="VARCHAR" />
+		<result column="RANK_ID" property="rankId" jdbcType="VARCHAR" />
+		<result column="MARK" property="mark" jdbcType="BIGINT" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.blog.domain.User"
+		extends="BaseResultMap">
+		<result column="REMARK" property="remark" jdbcType="VARBINARY" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, USER_ID, USER_NAME, PWD, AUTHORITY, CREATE_TIME, FROZEN, PERSON_ID,
+		RANK_ID,
+		MARK
+	</sql>
+	<sql id="Blob_Column_List">
+		REMARK
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from user
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from user
+		where ID = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="com.blog.domain.User">
+		insert into user (ID, USER_ID, USER_NAME,
+		PWD, AUTHORITY, CREATE_TIME,
+		FROZEN, PERSON_ID, RANK_ID,
+		MARK, REMARK)
+		values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR},
+		#{userName,jdbcType=VARCHAR},
+		#{pwd,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+		#{frozen,jdbcType=VARCHAR}, #{personId,jdbcType=VARCHAR},
+		#{rankId,jdbcType=VARCHAR},
+		#{mark,jdbcType=BIGINT}, #{remark,jdbcType=VARBINARY})
+	</insert>
+	<insert id="insertSelective" parameterType="com.blog.domain.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="userId != null">
+				USER_ID,
+			</if>
+			<if test="userName != null">
+				USER_NAME,
+			</if>
+			<if test="pwd != null">
+				PWD,
+			</if>
+			<if test="authority != null">
+				AUTHORITY,
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME,
+			</if>
+			<if test="frozen != null">
+				FROZEN,
+			</if>
+			<if test="personId != null">
+				PERSON_ID,
+			</if>
+			<if test="rankId != null">
+				RANK_ID,
+			</if>
+			<if test="mark != null">
+				MARK,
+			</if>
+			<if test="remark != null">
+				REMARK,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				#{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="authority != null">
+				#{authority,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="frozen != null">
+				#{frozen,jdbcType=VARCHAR},
+			</if>
+			<if test="personId != null">
+				#{personId,jdbcType=VARCHAR},
+			</if>
+			<if test="rankId != null">
+				#{rankId,jdbcType=VARCHAR},
+			</if>
+			<if test="mark != null">
+				#{mark,jdbcType=BIGINT},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARBINARY},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.User">
+		update user
+		<set>
+			<if test="userId != null">
+				USER_ID = #{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				USER_NAME = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				PWD = #{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="authority != null">
+				AUTHORITY = #{authority,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="frozen != null">
+				FROZEN = #{frozen,jdbcType=VARCHAR},
+			</if>
+			<if test="personId != null">
+				PERSON_ID = #{personId,jdbcType=VARCHAR},
+			</if>
+			<if test="rankId != null">
+				RANK_ID = #{rankId,jdbcType=VARCHAR},
+			</if>
+			<if test="mark != null">
+				MARK = #{mark,jdbcType=BIGINT},
+			</if>
+			<if test="remark != null">
+				REMARK = #{remark,jdbcType=VARBINARY},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.blog.domain.User">
+		update user
+		set USER_ID = #{userId,jdbcType=VARCHAR},
+		USER_NAME = #{userName,jdbcType=VARCHAR},
+		PWD = #{pwd,jdbcType=VARCHAR},
+		AUTHORITY = #{authority,jdbcType=VARCHAR},
+		CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+		FROZEN = #{frozen,jdbcType=VARCHAR},
+		PERSON_ID = #{personId,jdbcType=VARCHAR},
+		RANK_ID = #{rankId,jdbcType=VARCHAR},
+		MARK = #{mark,jdbcType=BIGINT},
+		REMARK = #{remark,jdbcType=VARBINARY}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.blog.domain.User">
+		update user
+		set USER_ID = #{userId,jdbcType=VARCHAR},
+		USER_NAME = #{userName,jdbcType=VARCHAR},
+		PWD = #{pwd,jdbcType=VARCHAR},
+		AUTHORITY = #{authority,jdbcType=VARCHAR},
+		CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+		FROZEN = #{frozen,jdbcType=VARCHAR},
+		PERSON_ID = #{personId,jdbcType=VARCHAR},
+		RANK_ID = #{rankId,jdbcType=VARCHAR},
+		MARK = #{mark,jdbcType=BIGINT}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
 </mapper>
