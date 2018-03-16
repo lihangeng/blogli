@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.blog.dao.intf.IFriendDao;
 import com.blog.domain.Blog;
 import com.blog.domain.User;
 import com.blog.service.intf.IBlogService;
@@ -22,6 +23,9 @@ public class Usertest {
 	
 	@Autowired
 	private IBlogService blogService;
+	
+	@Autowired
+	private IFriendDao friendDao;
 
 	@Test
 	public void testQueryUserById() {
@@ -35,4 +39,11 @@ public class Usertest {
 //	public void testBlogService() {
 //		List<Blog> blogs = blogService.selectAll();
 //	}
+	
+//	@Test
+//	public void testFriendService() {
+//		friendDao.selectByPrimaryKey("1");
+//	}
+	
+	
 }

@@ -10,22 +10,22 @@ public class FriendDao extends BaseDao implements IFriendDao {
 
 	@Override
 	public int deleteByPrimaryKey(String fId) {
-		return sessionTemplate.delete("com.blog.Mapper.BlogMapper.deleteByPrimaryKey", fId);
+		return sessionTemplate.delete("com.blog.Mapper.FriendMapper.deleteByPrimaryKey", fId);
 	}
 
 	@Override
 	public int insert(Friend record) {
-		return sessionTemplate.insert("com.blog.Mapper.BlogMapper.insert", record);
+		return sessionTemplate.insert("com.blog.Mapper.FriendMapper.insert", record);
 	}
 
 	@Override
 	public Friend selectByPrimaryKey(String fId) {
-		return sessionTemplate.selectOne("com.blog.Mapper.BlogMapper.selectByPrimaryKey", fId);
+		return sessionTemplate.selectOne("com.blog.Mapper.FriendMapper.selectByPrimaryKey", fId);
 	}
 
 	@Override
 	public int updateByPrimaryKey(Friend record) {
-		return sessionTemplate.update("com.blog.Mapper.BlogMapper.updateByPrimaryKey", record);
+		return sessionTemplate.update("com.blog.Mapper.FriendMapper.updateByPrimaryKey", record);
 	}
 
 }
