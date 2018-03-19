@@ -19,7 +19,8 @@ public class SystemController {
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
-		List<Blog> blog = blogService.selectAll();
+		List<Blog> blogs = blogService.selectAll();
+		mv.addObject("blogList", blogs);
 		return mv;
 	}
 
