@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,36 +66,9 @@
 		<div class="container-fluid">
 
 			<c:forEach var="blog" items="${blogs}">
-				<article class="excerpt">
-					<header>
-						<a class="label label-important">
-							href="getcategory.html?categoryid=${blog.categoryid}">${blog.category.cName}<i
-							class="label-arrow"></i>
-						</a>
-						<h2>
-							<a href="getblogdetail.html?blogid=${blog.blogid}"
-								title="${blog.title}">${blog.title}</a>
-						</h2>
-					</header>
-					<div class="focus">
-						<a href="getblogdetail.html?blogid=${blog.blogid}"> <img
-							class="thumb" src="${blog.imageurl}?imageView2/1/w/200/h/123"
-							alt="${blog.title}"></a>
-					</div>
-					<span class="note">${blog.summary}...</span>
-					<p class="auth-span">
-						<span class="muted"><i class="fa fa-clock-o"></i>
-							${blog.createAt}</span> <span class="muted"><i class="fa fa-eye"></i>
-							${blog.hits}浏览</span> <span class="muted"> <a
-							href="${pageContext.request.contextPath}/getblogdetail.html?blogid=${blog.blogid}">
-								<span id="sourceId::${blog.blogid}" class="cy_cmt_count"></span>
-								<!--畅言导致加载缓慢，有时间处理一下--> <script id="cy_cmt_num"
-									src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt4SnwiG">
-									
-								</script>评论
-						</a>
-						</span>
-				</article>
+				<div>博客</div>
+				<div>${blog.summary}</div>
+
 			</c:forEach>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">

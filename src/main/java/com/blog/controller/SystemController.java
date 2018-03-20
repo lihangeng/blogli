@@ -17,6 +17,7 @@ public class SystemController {
 	@Autowired
 	private IBlogService blogService;
 	
+	@Autowired
 	private IBlogCategoryService blogCategoryService;
 	
 	@RequestMapping("/index")
@@ -26,7 +27,7 @@ public class SystemController {
 		for(Blog blog : blogs) {
 			blog.setBlogCategory(blogCategoryService.selectByPrimaryKey(blog.getCategoryId()));
 		}
-		mv.addObject("blogList", blogs);
+		mv.addObject("blogs", blogs);
 		return mv;
 	}
 

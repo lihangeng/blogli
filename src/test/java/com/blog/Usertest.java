@@ -27,13 +27,13 @@ public class Usertest {
 	@Autowired
 	private IFriendDao friendDao;
 
-	@Test
-	public void testQueryUserById() {
-		User user = userService.selectByPrimaryKey(1L);
-//		userService.deleteByPrimaryKey(1L);
-		System.out.println(user.getUserId());
-		System.out.println(user.getUserName());
-	}
+//	@Test
+//	public void testQueryUserById() {
+//		User user = userService.selectByPrimaryKey(1L);
+////		userService.deleteByPrimaryKey(1L);
+//		System.out.println(user.getUserId());
+//		System.out.println(user.getUserName());
+//	}
 	
 //	@Test
 //	public void testBlogService() {
@@ -45,5 +45,12 @@ public class Usertest {
 //		friendDao.selectByPrimaryKey("1");
 //	}
 	
+	@Test
+	public void testSelectAll() {
+		List<Blog> blogs = blogService.selectAll();
+		for(Blog blog:blogs) {
+			System.out.println(blog.getCategoryId());
+		}
+	}
 	
 }
