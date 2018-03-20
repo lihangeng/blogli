@@ -63,6 +63,10 @@
    <!-- 博客内容 -->
 	<section class="tm-section">
 		<div class="container-fluid">
+		
+		 <c:forEach var="blog" items="${blogs}">
+		 
+		 </c:forEach>
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
 
