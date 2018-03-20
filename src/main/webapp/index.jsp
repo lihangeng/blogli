@@ -16,6 +16,17 @@
 <!-- Bootstrap style -->
 <link rel="stylesheet" href="css/templatemo-style.css">
 <!-- Templatemo style -->
+<link rel="stylesheet" href="css/blogbootstrap.css">
+<link rel="stylesheet" href="css/chromagallery.css">
+<link rel="stylesheet" href="css/editormd.preview.css">
+<link rel="stylesheet" href="css/jingmi.css">
+<link rel="stylesheet" href="css/lanrenzhijia.css">
+<link rel="stylesheet" href="css/modifyeditormd.css">
+<link rel="stylesheet" href="css/newlypublished.css">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/style.css">
+
+
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,8 +77,22 @@
 		<div class="container-fluid">
 
 			<c:forEach var="blog" items="${blogs}">
-				<div>博客</div>
-				<div>${blog.summary}</div>
+				<article class="excerpt">
+					<header>
+						<a class="label label-important"
+							href="getcategory.html?categoryid=${blog.categoryId}">${blog.blogCategory.cName}<i
+							class="label-arrow"></i></a>
+						<h2>
+							<a href="getblogdetail.html?blogid=${blog.id}"
+								title="${blog.title}">${blog.title}</a>
+						</h2>
+					</header>
+					<span class="note">${blog.summary}...</span>
+					<p class="auth-span">
+						<span class="muted"><i class="fa fa-clock-o"></i>
+							${blog.createTime}</span> <span class="muted"><i class="fa fa-eye"></i>
+							${blog.hits}浏览</span>
+				</article>
 
 			</c:forEach>
 			<div class="row">
