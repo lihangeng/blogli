@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<!-- <package name="com.wxisme.ssm.po"/> -->
 		<typeAlias alias="User" type="com.blog.domain.User" />
 		<typeAlias alias="Blog" type="com.blog.domain.Blog" />
+		<typeAlias alias="BlogCategory" type="com.blog.domain.BlogCategory" />
 		<typeAlias alias="Friend" type="com.blog.domain.Friend" />
 		<typeAlias alias="Person" type="com.blog.domain.Person" />
 		<typeAlias alias="Article" type="com.blog.domain.Article" />
@@ -24,6 +25,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<!-- 通过扫描包的方式来进行批量加载映射文件 <package name="com.wxisme.ssm.mapper" /> -->
 		<mapper resource="com/blog/mybatis/UserMapper.xml" />
 		<mapper resource="com/blog/mybatis/BlogMapper.xml" />
+		<mapper resource="com/blog/mybatis/BlogCategoryMapper.xml" />
 		<mapper resource="com/blog/mybatis/FriendMapper.xml" />
 		<mapper resource="com/blog/mybatis/PersonMapper.xml" />
 		<mapper resource="com/blog/mybatis/ArticleMapper.xml" />

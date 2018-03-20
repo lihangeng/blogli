@@ -1,101 +1,145 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blog.mapper.BlogMapper">
-	<resultMap id="BaseResultMap" type="com.blog.domain.Blog">
-		<id column="ID" property="id" jdbcType="BIGINT" />
-		<result column="KEYWORD" property="keyword" jdbcType="VARCHAR" />
-		<result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
-		<result column="NAME" property="name" jdbcType="VARCHAR" />
-		<result column="TITLE" property="title" jdbcType="VARCHAR" />
-	</resultMap>
-	<sql id="Base_Column_List">
-		ID, KEYWORD, DESCRIPTION, NAME, TITLE
-	</sql>
-	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-		parameterType="java.lang.Long">
-		select
-		<include refid="Base_Column_List" />
-		from blog
-		where ID = #{id,jdbcType=BIGINT}
-	</select>
-	<select id="selectAll" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from blog
-		where 1=1
-	</select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-		delete from blog
-		where ID = #{id,jdbcType=BIGINT}
-	</delete>
-	<insert id="insert" parameterType="com.blog.domain.Blog">
-		insert into blog (ID, KEYWORD, DESCRIPTION,
-		NAME, TITLE)
-		values (#{id,jdbcType=BIGINT}, #{keyword,jdbcType=VARCHAR},
-		#{description,jdbcType=VARCHAR},
-		#{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR})
-	</insert>
-	<insert id="insertSelective" parameterType="com.blog.domain.Blog">
-		insert into blog
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				ID,
-			</if>
-			<if test="keyword != null">
-				KEYWORD,
-			</if>
-			<if test="description != null">
-				DESCRIPTION,
-			</if>
-			<if test="name != null">
-				NAME,
-			</if>
-			<if test="title != null">
-				TITLE,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				#{id,jdbcType=BIGINT},
-			</if>
-			<if test="keyword != null">
-				#{keyword,jdbcType=VARCHAR},
-			</if>
-			<if test="description != null">
-				#{description,jdbcType=VARCHAR},
-			</if>
-			<if test="name != null">
-				#{name,jdbcType=VARCHAR},
-			</if>
-			<if test="title != null">
-				#{title,jdbcType=VARCHAR},
-			</if>
-		</trim>
-	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.Blog">
-		update blog
-		<set>
-			<if test="keyword != null">
-				KEYWORD = #{keyword,jdbcType=VARCHAR},
-			</if>
-			<if test="description != null">
-				DESCRIPTION = #{description,jdbcType=VARCHAR},
-			</if>
-			<if test="name != null">
-				NAME = #{name,jdbcType=VARCHAR},
-			</if>
-			<if test="title != null">
-				TITLE = #{title,jdbcType=VARCHAR},
-			</if>
-		</set>
-		where ID = #{id,jdbcType=BIGINT}
-	</update>
-	<update id="updateByPrimaryKey" parameterType="com.blog.domain.Blog">
-		update blog
-		set KEYWORD = #{keyword,jdbcType=VARCHAR},
-		DESCRIPTION = #{description,jdbcType=VARCHAR},
-		NAME = #{name,jdbcType=VARCHAR},
-		TITLE = #{title,jdbcType=VARCHAR}
-		where ID = #{id,jdbcType=BIGINT}
-	</update>
+<mapper namespace="com.blog.mapper.BlogMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.domain.Blog" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="SUMMARY" property="summary" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CATEGORY_ID" property="categoryId" jdbcType="INTEGER" />
+    <result column="HITS" property="hits" jdbcType="INTEGER" />
+    <result column="IMAGEURL" property="imageurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.blog.domain.Blog" extends="BaseResultMap" >
+    <result column="CONTEXT" property="context" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, SUMMARY, CREATE_TIME, CATEGORY_ID, HITS, IMAGEURL
+  </sql>
+  <sql id="Blob_Column_List" >
+    CONTEXT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.domain.Blog" >
+    insert into blog (ID, TITLE, SUMMARY, 
+      CREATE_TIME, CATEGORY_ID, HITS, 
+      IMAGEURL, CONTEXT)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{categoryId,jdbcType=INTEGER}, #{hits,jdbcType=INTEGER}, 
+      #{imageurl,jdbcType=VARCHAR}, #{context,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.domain.Blog" >
+    insert into blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="summary != null" >
+        SUMMARY,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="categoryId != null" >
+        CATEGORY_ID,
+      </if>
+      <if test="hits != null" >
+        HITS,
+      </if>
+      <if test="imageurl != null" >
+        IMAGEURL,
+      </if>
+      <if test="context != null" >
+        CONTEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="hits != null" >
+        #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="imageurl != null" >
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null" >
+        #{context,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.domain.Blog" >
+    update blog
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        SUMMARY = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryId != null" >
+        CATEGORY_ID = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="hits != null" >
+        HITS = #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="imageurl != null" >
+        IMAGEURL = #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null" >
+        CONTEXT = #{context,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.blog.domain.Blog" >
+    update blog
+    set TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CATEGORY_ID = #{categoryId,jdbcType=INTEGER},
+      HITS = #{hits,jdbcType=INTEGER},
+      IMAGEURL = #{imageurl,jdbcType=VARCHAR},
+      CONTEXT = #{context,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.domain.Blog" >
+    update blog
+    set TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CATEGORY_ID = #{categoryId,jdbcType=INTEGER},
+      HITS = #{hits,jdbcType=INTEGER},
+      IMAGEURL = #{imageurl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
