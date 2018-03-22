@@ -2,6 +2,8 @@ package com.blog.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import com.blog.service.intf.IBlogService;
 @Controller
 public class SystemController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(SystemController.class);
+	
 	@Autowired
 	private IBlogService blogService;
 	
@@ -22,6 +26,7 @@ public class SystemController {
 	
 	@RequestMapping("/index")
 	public ModelAndView index() {
+		logger.info("显示主页");
 		ModelAndView mv = new ModelAndView();
 		List<Blog> blogs = blogService.selectAll();
 		for(Blog blog : blogs) {

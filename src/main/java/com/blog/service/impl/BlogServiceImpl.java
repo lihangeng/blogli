@@ -16,7 +16,7 @@ public class BlogServiceImpl implements IBlogService {
 	private BlogDao blogDao;
 
 	@Override
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(Integer id) {
 		return blogDao.deleteByPrimaryKey(id);
 	}
 
@@ -26,7 +26,7 @@ public class BlogServiceImpl implements IBlogService {
 	}
 
 	@Override
-	public Blog selectByPrimaryKey(Long id) {
+	public Blog selectByPrimaryKey(Integer id) {
 		return blogDao.selectByPrimaryKey(id);
 	}
 
@@ -38,6 +38,24 @@ public class BlogServiceImpl implements IBlogService {
 	@Override
 	public List<Blog> selectAll() {
 		return blogDao.selectAll();
+	}
+
+	@Override
+	public Blog preBlog(Integer blogId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Blog nextBlog(Integer blogId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateBlogHits(Integer blogId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

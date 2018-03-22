@@ -6,13 +6,19 @@ import com.blog.domain.Blog;
 
 public interface IBlogService {
 
-	int deleteByPrimaryKey(Long id);
+	int deleteByPrimaryKey(Integer blogId);
 
 	int insert(Blog record);
 
-	Blog selectByPrimaryKey(Long id);
+	Blog selectByPrimaryKey(Integer blogId);
 
 	int updateByPrimaryKey(Blog record);
 	
 	List<Blog> selectAll();
+	
+    public Blog preBlog(Integer blogId);
+
+    public Blog nextBlog(Integer blogId);
+    
+    public void updateBlogHits(Integer blogId);
 }

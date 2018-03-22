@@ -11,7 +11,7 @@ import com.blog.domain.Blog;
 public class BlogDao extends BaseDao implements IBlogDao {
 
 	@Override
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(Integer id) {
 		return sessionTemplate.delete("com.blog.mapper.BlogMapper.deleteByPrimaryKey", id);
 	}
 
@@ -21,7 +21,7 @@ public class BlogDao extends BaseDao implements IBlogDao {
 	}
 
 	@Override
-	public Blog selectByPrimaryKey(Long id) {
+	public Blog selectByPrimaryKey(Integer id) {
 		return sessionTemplate.selectOne("com.blog.mapper.BlogMapper.selectByPrimaryKey", id);
 	}
 
@@ -33,6 +33,24 @@ public class BlogDao extends BaseDao implements IBlogDao {
 	@Override
 	public List<Blog> selectAll() {
 		return sessionTemplate.selectList("com.blog.mapper.BlogMapper.selectAll");
+	}
+
+	@Override
+	public Blog preBlog(Integer blogId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Blog nextBlog(Integer blogId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateBlogHits(Integer blogId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

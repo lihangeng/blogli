@@ -20,4 +20,10 @@ public interface BlogMapper {
     int updateByPrimaryKeyWithBLOBs(Blog record);
 
     int updateByPrimaryKey(Blog record);
+    
+    public Blog preBlog(Integer blogId);
+
+    public Blog nextBlog(Integer blogId);
+    
+    public void updateBlogHits(Integer blogId);
 }
