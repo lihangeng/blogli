@@ -4,24 +4,42 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.blog.dao.impl.BlogDao;
 import com.blog.domain.Blog;
+import com.blog.domain.BlogCategory;
+import com.blog.service.intf.IBlogCategoryService;
 import com.blog.service.intf.IBlogService;
 
 @Service
 public class BlogServiceImpl implements IBlogService {
-	
+
 	@Autowired
 	private BlogDao blogDao;
+
+	private IBlogCategoryService blogCategoryService;
 
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		return blogDao.deleteByPrimaryKey(id);
 	}
 
+	/**
+	 * 插入一条博客，并且在博客分类+1
+	 * 
+	 * @param record
+	 * @return
+	 */
 	@Override
+	@Transactional
 	public int insert(Blog record) {
+		BlogCategory blogCategory;
+		if (null != record.getCategoryId()) {
+			blogCategory = blogCategoryService.selectByPrimaryKey(record.getCategoryId());
+			blogCategory.setcNum(blogCategory.getcNum() + 1);
+			blogCategoryService.updateByPrimaryKey(blogCategory);
+		}
 		return blogDao.insert(record);
 	}
 
@@ -47,7 +65,7 @@ public class BlogServiceImpl implements IBlogService {
 	public Blog preBlog(Integer blogId) {
 		return blogDao.preBlog(blogId);
 	}
-	
+
 	/**
 	 * 下一条博客
 	 */
@@ -61,7 +79,7 @@ public class BlogServiceImpl implements IBlogService {
 	 */
 	@Override
 	public void updateBlogHits(Integer blogId) {
-		blogDao.updateBlogHits(blogId);		
+		blogDao.updateBlogHits(blogId);
 	}
 
 }
