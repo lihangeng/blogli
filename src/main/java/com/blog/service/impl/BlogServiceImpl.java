@@ -42,20 +42,17 @@ public class BlogServiceImpl implements IBlogService {
 
 	@Override
 	public Blog preBlog(Integer blogId) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogDao.preBlog(blogId);
 	}
 
 	@Override
 	public Blog nextBlog(Integer blogId) {
-		// TODO Auto-generated method stub
-		return null;
+		return blogDao.nextBlog(blogId);
 	}
 
 	@Override
 	public void updateBlogHits(Integer blogId) {
-		// TODO Auto-generated method stub
-		
+		blogDao.updateBlogHits(blogId);		
 	}
 
 }

@@ -36,21 +36,18 @@ public class BlogDao extends BaseDao implements IBlogDao {
 	}
 
 	@Override
-	public Blog preBlog(Integer blogId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Blog preBlog(Integer id) {
+		return sessionTemplate.selectOne("com.blog.mapper.BlogMapper.preBlog", id);
 	}
 
 	@Override
-	public Blog nextBlog(Integer blogId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Blog nextBlog(Integer id) {
+		return sessionTemplate.selectOne("com.blog.mapper.BlogMapper.nextBlog", id);
 	}
 
 	@Override
-	public void updateBlogHits(Integer blogId) {
-		// TODO Auto-generated method stub
-		
+	public void updateBlogHits(Integer id) {
+		sessionTemplate.update("com.blog.mapper.BlogMapper.updateBlogHits", id);		
 	}
 
 }
