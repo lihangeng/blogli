@@ -10,7 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.blog.domain.Blog;
 import com.blog.service.intf.IBlogService;
-
+/**
+ * 博客
+ * 
+ * @author 17051548
+ *
+ */
 @Controller
 public class BlogController {
 
@@ -18,7 +23,11 @@ public class BlogController {
 
 	@Autowired
 	private IBlogService blogService;
-
+	/**
+	 * 获取博客详细信息
+	 * @param blogId
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.GET, path = "/getblogdetail")
 	public ModelAndView getBlogDetail(Integer blogId) {
 		ModelAndView mv = new ModelAndView();

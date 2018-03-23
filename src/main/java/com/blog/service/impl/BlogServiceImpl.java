@@ -40,16 +40,25 @@ public class BlogServiceImpl implements IBlogService {
 		return blogDao.selectAll();
 	}
 
+	/**
+	 * 上一条博客
+	 */
 	@Override
 	public Blog preBlog(Integer blogId) {
 		return blogDao.preBlog(blogId);
 	}
-
+	
+	/**
+	 * 下一条博客
+	 */
 	@Override
 	public Blog nextBlog(Integer blogId) {
 		return blogDao.nextBlog(blogId);
 	}
 
+	/**
+	 * 更新访问次数
+	 */
 	@Override
 	public void updateBlogHits(Integer blogId) {
 		blogDao.updateBlogHits(blogId);		

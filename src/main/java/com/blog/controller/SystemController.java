@@ -13,6 +13,12 @@ import com.blog.domain.Blog;
 import com.blog.service.intf.IBlogCategoryService;
 import com.blog.service.intf.IBlogService;
 
+/**
+ * 系统
+ * 
+ * @author 17051548
+ *
+ */
 @Controller
 public class SystemController {
 	
