@@ -1,8 +1,9 @@
 package com.blog.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Blog {
+public class Blog implements Serializable{
 	private Integer id;
 
 	private String title;

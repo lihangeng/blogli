@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <html>
 <head>
 <title>Classic - Responsive Bootstrap 4.0 Template</title>
@@ -22,6 +22,13 @@
 <link rel="stylesheet" href="css/newlypublished.css">
 <link rel="stylesheet" href="css/reveal.css">
 <link rel="stylesheet" href="css/style.css">
+<!-- load JS files -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<!-- jQuery (https://jquery.com/download/) -->
+<script src="js/tether.min.js"></script>
+<!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->
 </head>
 
 <body>
@@ -75,14 +82,15 @@
 								title="${blog.title}">${blog.title}</a>
 						</h2>
 					</header>
-					<div class="focus"><a href="getblogdetail.html?blogid=${blog.id}">
-                        <img class="thumb" src="${blog.imageurl}" alt="${blog.title}"></a>
-                    </div>
+					<div class="focus">
+						<a href="getblogdetail.html?blogid=${blog.id}"> <img
+							class="thumb" src="${blog.imageurl}" alt="${blog.title}"></a>
+					</div>
 					<span class="note">${blog.summary}...</span>
 					<p class="auth-span">
 						<span class="muted"><i class="fa fa-clock-o"></i>
-							${blog.createTime}</span> <span class="muted"><i class="fa fa-eye"></i>
-							${blog.hits}浏览</span>
+							${blog.createTime}</span> <span class="muted"><i
+							class="fa fa-eye"></i> ${blog.hits}浏览</span>
 				</article>
 
 			</c:forEach>
@@ -102,16 +110,8 @@
 			</div>
 			<!-- row -->
 		</div>
-		<%@include file="sidebar.jsp" %>>
+		<%@include file="sidebar.jsp"%>>
 	</section>
-
-	<!-- load JS files -->
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<!-- jQuery (https://jquery.com/download/) -->
-	<script src="js/tether.min.js"></script>
-	<!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->
-
+<%@include file="foot.jsp" %>
 </body>
 </html>
